@@ -1,5 +1,5 @@
 # Build container
-FROM node:8-alpine AS build-env
+FROM node:10-alpine AS build-env
 MAINTAINER PR <code@ongoing.today>
 
 USER root
@@ -19,7 +19,7 @@ WORKDIR /moloch
 RUN npm ci
 
 # Container
-FROM node:8-alpine
+FROM node:10-alpine
 USER root
 RUN apk update && \
     apk add --no-cache \
