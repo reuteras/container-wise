@@ -1,6 +1,5 @@
 # Build container
 FROM node:10-alpine AS build-env
-MAINTAINER PR <code@ongoing.today>
 
 USER root
 WORKDIR /
