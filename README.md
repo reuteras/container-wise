@@ -1,5 +1,7 @@
 # container-wise
 
+![Linter](https://github.com/reuteras/container-wise/workflows/Linter/badge.svg)
+
 A node10:alpine based docker image for Moloch's WISE application forked from [problematiq/Wise-alpine-Docker](https://github.com/problematiq/Wise-alpine-Docker).
 
 ## Mounts
