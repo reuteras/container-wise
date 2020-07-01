@@ -1,5 +1,6 @@
 # Build container
 FROM node:10-alpine AS build-env
+LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
 WORKDIR /
