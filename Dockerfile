@@ -11,8 +11,7 @@ RUN apk update && \
         python \
         make \
         g++ && \
-    git clone -b 'master' --single-branch --no-tags --depth=1 https://github.com/aol/moloch.git
-    #git clone -b 'v2.3.2' --single-branch https://github.com/aol/moloch.git
+    git clone -b 'v2.4.0' --single-branch https://github.com/aol/moloch.git
 
 WORKDIR /moloch/wiseService/
 RUN npm install
