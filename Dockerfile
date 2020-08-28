@@ -38,4 +38,4 @@ USER appuser
 
 EXPOSE 8081
 
-CMD "/data/moloch/wiseService/start_script.sh"
+CMD ["/data/moloch/wiseService/start_script.sh"]
