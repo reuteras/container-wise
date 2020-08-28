@@ -17,6 +17,7 @@ WORKDIR /moloch/wiseService/
 RUN npm install
 WORKDIR /moloch
 RUN npm ci
+USER appuser
 
 # Container
 FROM node:10-alpine
