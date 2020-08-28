@@ -32,6 +32,9 @@ COPY --from=build-env /moloch/node_modules/ /data/moloch/node_modules/
 COPY files/ /data/moloch/wiseService/
 RUN chmod 777 /data/moloch/wiseService/start_script.sh
 
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
 EXPOSE 8081
 
 CMD "/data/moloch/wiseService/start_script.sh"
