@@ -11,7 +11,7 @@ RUN apk update && \
         python \
         make \
         g++ && \
-    git clone -b 'v2.7.0' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v2.7.1' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService/
 RUN npm install
