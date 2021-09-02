@@ -4,8 +4,8 @@
 #
 
 # Start the process
-cd /data/moloch/wiseService || exit
-node wiseService.js -c wiseService.ini
+cd /opt/arkime/wiseService || exit
+node wiseService.js -c /opt/arkime/wiseService/wiseService.ini --webconfig
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start Wise: $status"
