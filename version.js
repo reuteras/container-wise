@@ -1,2 +1,2 @@
-exports.version = "VERSION";
-exports.config_prefix = "/opt/arkime";
+exports.version = 'VERSION'
+exports.config_prefix = '/opt/arkime'
