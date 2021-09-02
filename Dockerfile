@@ -1,5 +1,5 @@
 # Build container
-FROM node:10-alpine AS build-env
+FROM node:12-alpine AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
@@ -20,7 +20,7 @@ RUN npm ci
 USER appuser
 
 # Container
-FROM node:10-alpine
+FROM node:12-alpine
 USER root
 RUN apk update && \
     apk add --no-cache \
