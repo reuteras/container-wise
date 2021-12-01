@@ -8,7 +8,7 @@ WORKDIR /
 RUN apk update && \
     apk add --no-cache \
         git \
-        python \
+        python3 \
         make \
         g++ && \
     git clone -b 'v2.7.1' --single-branch https://github.com/arkime/arkime.git
