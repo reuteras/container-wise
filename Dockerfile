@@ -16,7 +16,7 @@ RUN apk update && \
         py3-pip \
         python3 \
         re2c && \
-    git clone -b 'v3.1.1' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v3.2.1' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
 RUN npm install
