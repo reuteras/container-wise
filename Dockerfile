@@ -33,6 +33,7 @@ RUN apk update && \
       ca-certificates
 
 WORKDIR /opt/arkime/wiseService/
+COPY --from=build-env /arkime/common/ /opt/arkime/common/
 COPY --from=build-env /arkime/wiseService/ /opt/arkime/wiseService/
 COPY --from=build-env /arkime/node_modules/ /opt/arkime/node_modules/
 COPY --from=build-env /arkime/assets/Arkime_Icon* /opt/arkime/assets/
