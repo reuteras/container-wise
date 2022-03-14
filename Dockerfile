@@ -1,5 +1,5 @@
 # Build container
-FROM node:14-alpine AS build-env
+FROM node:16-alpine AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
@@ -16,7 +16,7 @@ RUN apk update && \
         py3-pip \
         python3 \
         re2c && \
-    git clone -b 'v3.3.0' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v3.4.0' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
 RUN npm install
@@ -26,7 +26,7 @@ RUN npm run wise:build
 USER appuser
 
 # Container
-FROM node:14-alpine
+FROM node:16-alpine
 USER root
 RUN apk update && \
     apk add --no-cache \
