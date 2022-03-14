@@ -2,7 +2,7 @@
 
 ![Linter](https://github.com/reuteras/container-wise/workflows/Linter/badge.svg)
 
-A node:14-alpine based docker image for [Arkime](https://arkime.com/)'s [WISE](https://arkime.com/wise).
+A node:16-alpine based docker image for [Arkime](https://arkime.com/)'s [WISE](https://arkime.com/wise).
 
 The base of this repo forked from [problematiq/Wise-alpine-Docker](https://github.com/problematiq/Wise-alpine-Docker).
 
@@ -14,4 +14,4 @@ This image doesn't require mounts, but it is preferred that you overwrite the wi
 
 Alternative you can run the it with default settings.
 
-    docker run -d -v /Location/of/file_to/mount/wiseService.ini:/opt/arkime/wiseService/wiseService.ini --name wise -p 8081:8081 reuteras/container-wise
+    docker run -d --name wise -p 8081:8081 reuteras/container-wise
