@@ -5,6 +5,7 @@ LABEL maintainer="Coding <code@ongoing.today>"
 USER root
 WORKDIR /
 
+# hadolint ignore=DL3018
 RUN apk update && \
     apk add --no-cache \
         automake \
@@ -21,13 +22,14 @@ RUN apk update && \
 WORKDIR /arkime/wiseService
 RUN npm install
 WORKDIR /arkime
-RUN npm install
-RUN npm run wise:build
+RUN npm install && \
+     npm run wise:build
 USER appuser
 
 # Container
 FROM node:16-alpine
 USER root
+# hadolint ignore=DL3018
 RUN apk update && \
     apk add --no-cache \
       ca-certificates
