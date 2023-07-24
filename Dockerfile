@@ -17,7 +17,7 @@ RUN apk update && \
         py3-pip \
         python3 \
         re2c && \
-    git clone -b 'v3.4.2' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v4.3.2' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
 RUN npm install
@@ -39,9 +39,9 @@ COPY --from=build-env /arkime/common/ /opt/arkime/common/
 COPY --from=build-env /arkime/wiseService/ /opt/arkime/wiseService/
 COPY --from=build-env /arkime/node_modules/ /opt/arkime/node_modules/
 COPY --from=build-env /arkime/assets/Arkime_Icon* /opt/arkime/assets/
-COPY version.js /opt/arkime/viewer/version.js
+COPY version.js /opt/arkime/common/version
 COPY files/ /opt/arkime/wiseService/
-RUN sed -i -e "s/VERSION/3.4.2/" /opt/arkime/viewer/version.js && \
+RUN sed -i -e "s/VERSION/4.3.2/" /opt/arkime/common/version && \
     chmod 755 /opt/arkime/wiseService/start_script.sh
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
