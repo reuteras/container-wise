@@ -1,5 +1,5 @@
 # Build container
-FROM node:16-alpine AS build-env
+FROM node:18-alpine AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
@@ -27,7 +27,7 @@ RUN npm install && \
 USER appuser
 
 # Container
-FROM node:16-alpine
+FROM node:18-alpine
 USER root
 # hadolint ignore=DL3018
 RUN apk update && \
