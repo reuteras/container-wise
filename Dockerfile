@@ -1,23 +1,22 @@
 # Build container
-FROM node:18-alpine AS build-env
+FROM node:18-bookworm AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
 WORKDIR /
 
 # hadolint ignore=DL3018
-RUN apk update && \
-    apk add --no-cache \
+RUN apt-get update && \
+    apt-get install -y \
         automake \
         autoconf \
         g++ \
         git \
         make \
-        musl-libintl \
-        py3-pip \
+        python3-pip \
         python3 \
         re2c && \
-    git clone -b 'v4.5.0' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v4.6.0' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
 RUN npm install
@@ -27,11 +26,11 @@ RUN npm install && \
 USER appuser
 
 # Container
-FROM node:18-alpine
+FROM node:18-bookworm
 USER root
 # hadolint ignore=DL3018
-RUN apk update && \
-    apk add --no-cache \
+RUN apt-get update && \
+    apt-get install -y \
       ca-certificates
 
 WORKDIR /opt/arkime/wiseService/
@@ -41,10 +40,10 @@ COPY --from=build-env /arkime/node_modules/ /opt/arkime/node_modules/
 COPY --from=build-env /arkime/assets/Arkime_Icon* /opt/arkime/assets/
 COPY version.js /opt/arkime/common/version
 COPY files/ /opt/arkime/wiseService/
-RUN sed -i -e "s/VERSION/4.5.0/" /opt/arkime/common/version && \
+RUN sed -i -e "s/VERSION/4.6.0/" /opt/arkime/common/version && \
     chmod 755 /opt/arkime/wiseService/start_script.sh
 
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
 USER appuser
 
 EXPOSE 8081
