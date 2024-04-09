@@ -2,7 +2,7 @@
 
 ![Linter](https://github.com/reuteras/container-wise/workflows/Linter/badge.svg)
 
-A node:16-alpine based docker image for [Arkime](https://arkime.com/)'s [WISE](https://arkime.com/wise).
+A node:18-alpine based docker image for [Arkime](https://arkime.com/)'s [WISE](https://arkime.com/wise).
 
 The base of this repository forked from [problematiq/Wise-alpine-Docker](https://github.com/problematiq/Wise-alpine-Docker).
 
