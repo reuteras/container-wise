@@ -26,6 +26,9 @@ jobs:
       # access it
       - name: Checkout code
         uses: actions/checkout@main
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       # Runs a single command using the runners shell
       - name: Lint Code Base
