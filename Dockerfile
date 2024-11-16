@@ -1,5 +1,5 @@
 # Build container
-FROM node:18-bookworm AS build-env
+FROM node:20-bookworm AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
@@ -16,7 +16,7 @@ RUN apt-get update && \
         python3-pip \
         python3 \
         re2c && \
-    git clone -b 'v5.1.2' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v5.5.0' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
 RUN npm install
@@ -26,7 +26,7 @@ RUN npm install && \
 USER appuser
 
 # Container
-FROM node:18-bookworm
+FROM node:20-bookworm
 USER root
 # hadolint ignore=DL3018
 RUN apt-get update && \
@@ -40,7 +40,7 @@ COPY --from=build-env /arkime/node_modules/ /opt/arkime/node_modules/
 COPY --from=build-env /arkime/assets/Arkime_Icon* /opt/arkime/assets/
 COPY version.js /opt/arkime/common/version
 COPY files/ /opt/arkime/wiseService/
-RUN sed -i -e "s/VERSION/5.1.2/" /opt/arkime/common/version && \
+RUN sed -i -e "s/VERSION/5.5.0/" /opt/arkime/common/version && \
     chmod 755 /opt/arkime/wiseService/start_script.sh
 
 RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
