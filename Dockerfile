@@ -1,5 +1,5 @@
 # Build container
-FROM node:20-bookworm AS build-env
+FROM node:20-trixie AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
