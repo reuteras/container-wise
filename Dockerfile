@@ -1,5 +1,5 @@
 # Build container
-FROM node:20-trixie AS build-env
+FROM node:25-trixie AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
@@ -26,7 +26,7 @@ RUN npm install && \
 USER appuser
 
 # Container
-FROM node:20-bookworm
+FROM node:25-bookworm
 USER root
 # hadolint ignore=DL3018
 RUN apt-get update && \
