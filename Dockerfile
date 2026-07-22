@@ -1,5 +1,5 @@
 # Build container
-FROM node:25-trixie AS build-env
+FROM node:22-trixie AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
