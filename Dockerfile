@@ -26,7 +26,7 @@ RUN npm install && \
 USER appuser
 
 # Container
-FROM node:26-bookworm
+FROM node:22-trixie
 USER root
 # hadolint ignore=DL3018
 RUN apt-get update && \
