@@ -5,9 +5,9 @@ LABEL maintainer="Coding <code@ongoing.today>"
 USER root
 WORKDIR /
 
-# hadolint ignore=DL3018
+# hadolint ignore=DL3008,DL3018
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         automake \
         autoconf \
         g++ \
@@ -16,6 +16,7 @@ RUN apt-get update && \
         python3-pip \
         python3 \
         re2c && \
+    rm -rf /var/lib/apt/lists/* && \
     git clone -b 'v6.6.0' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
@@ -28,10 +29,11 @@ USER appuser
 # Container
 FROM node:22-trixie
 USER root
-# hadolint ignore=DL3018
+# hadolint ignore=DL3008,DL3018
 RUN apt-get update && \
-    apt-get install -y \
-      ca-certificates
+    apt-get install -y --no-install-recommends \
+      ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/arkime/wiseService/
 COPY --from=build-env /arkime/common/ /opt/arkime/common/
