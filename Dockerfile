@@ -17,7 +17,7 @@ RUN apt-get update && \
         python3 \
         re2c && \
     rm -rf /var/lib/apt/lists/* && \
-    git clone -b 'v6.6.0' --single-branch https://github.com/arkime/arkime.git
+    git clone -b 'v6.7.0' --single-branch https://github.com/arkime/arkime.git
 
 WORKDIR /arkime/wiseService
 RUN npm install
@@ -42,7 +42,7 @@ COPY --from=build-env /arkime/node_modules/ /opt/arkime/node_modules/
 COPY --from=build-env /arkime/assets/Arkime_Icon* /opt/arkime/assets/
 COPY version.js /opt/arkime/common/version
 COPY files/ /opt/arkime/wiseService/
-RUN sed -i -e "s/VERSION/6.6.0/" /opt/arkime/common/version && \
+RUN sed -i -e "s/VERSION/6.7.0/" /opt/arkime/common/version && \
     chmod 755 /opt/arkime/wiseService/start_script.sh
 
 RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
