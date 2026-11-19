@@ -1,5 +1,5 @@
 # Build container
-FROM node:22-trixie@sha256:c103d7b5aa3bf627c8b98db941d52556f04e0b5d9352b3d7b6391245d26620f8 AS build-env
+FROM node:26-trixie@sha256:e18c3ccdf7d71619990b0e85639f506e2028a95410999cab24cc373cbd10e0ac AS build-env
 LABEL maintainer="Coding <code@ongoing.today>"
 
 USER root
@@ -27,7 +27,7 @@ RUN npm install && \
 USER appuser
 
 # Container
-FROM node:22-trixie@sha256:c103d7b5aa3bf627c8b98db941d52556f04e0b5d9352b3d7b6391245d26620f8
+FROM node:26-trixie@sha256:e18c3ccdf7d71619990b0e85639f506e2028a95410999cab24cc373cbd10e0ac
 USER root
 # hadolint ignore=DL3008,DL3018
 RUN apt-get update && \
