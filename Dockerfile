@@ -31,6 +31,7 @@ FROM node:22-trixie@sha256:c103d7b5aa3bf627c8b98db941d52556f04e0b5d9352b3d7b6391
 USER root
 # hadolint ignore=DL3008,DL3018
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
       ca-certificates && \
     rm -rf /var/lib/apt/lists/*
